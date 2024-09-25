@@ -34,8 +34,7 @@ public class PurchaseServiceImpl implements PurchaseService {
 
 	@Override
 	public Purchase getPurchase(int tranNo) throws Exception {
-		Purchase purchase = purchaseDao.getPurchase(tranNo);
-		purchase.setPurchaseProd(null);
+		
 		return purchaseDao.getPurchase(tranNo);
 	}
 	

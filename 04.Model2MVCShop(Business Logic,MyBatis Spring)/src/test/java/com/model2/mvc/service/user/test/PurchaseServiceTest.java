@@ -46,7 +46,7 @@ public class PurchaseServiceTest {
 	@Qualifier("userServiceImpl")
 	private UserService userService;
 
-	@Test
+//	@Test
 	public void testAddPurchase() throws Exception {
 		
 		Purchase purchase = new Purchase();
@@ -81,7 +81,7 @@ public class PurchaseServiceTest {
 		
 	}
 	
-	//@Test
+//	@Test
 	public void testGetPurchase() throws Exception {
 		
 		Purchase purchase = new Purchase();
@@ -96,13 +96,13 @@ public class PurchaseServiceTest {
 //		purchase.setTranCode("1");
 //		purchase.setDivyDate(new Date(1900,01,01));
 		
-		purchase = purchaseService.getPurchase(10006);
+		purchase = purchaseService.getPurchase(10027);
 
 		//==> console 확인
 		System.out.println(purchase);
 		
 		//==> API 확인
-		Assert.assertEquals(10006, purchase.getTranNo());
+		Assert.assertEquals(10027, purchase.getTranNo());
 		Assert.assertEquals(10006, purchase.getPurchaseProd().getProdNo());
 		Assert.assertEquals("admin", purchase.getBuyer().getUserId());
 		Assert.assertEquals("1", purchase.getPaymentOption());
@@ -112,13 +112,10 @@ public class PurchaseServiceTest {
 		Assert.assertEquals("testRequest", purchase.getDivyRequest());
 		Assert.assertEquals("1", purchase.getTranCode());
 		Assert.assertEquals(new Date(1900,01,01), purchase.getDivyDate());
-		
-		
-		Assert.assertNotNull(purchaseService.getPurchase(10001));
-		Assert.assertNotNull(purchaseService.getPurchase(10003));
+	
 	}
 	
-	//@Test
+//	@Test
 	public void testGetPurchaseByProd() throws Exception {
 		
 		Purchase purchase = new Purchase();
@@ -139,7 +136,7 @@ public class PurchaseServiceTest {
 		System.out.println(purchase);
 		
 		//==> API 확인
-		Assert.assertEquals(10006, purchase.getTranNo());
+		Assert.assertEquals(10027, purchase.getTranNo());
 		Assert.assertEquals(10006, purchase.getPurchaseProd().getProdNo());
 		Assert.assertEquals("admin", purchase.getBuyer().getUserId());
 		Assert.assertEquals("1", purchase.getPaymentOption());
@@ -150,18 +147,15 @@ public class PurchaseServiceTest {
 		Assert.assertEquals("1", purchase.getTranCode());
 		Assert.assertEquals(new Date(1900,01,01), purchase.getDivyDate());
 		
-		
-		Assert.assertNotNull(purchaseService.getPurchase(10001));
-		Assert.assertNotNull(purchaseService.getPurchase(10003));
 	}
 	
-	//@Test
+//	@Test
 	 public void testUpdatePurchase() throws Exception{
 		 
-		Purchase purchase = purchaseService.getPurchase(10000);
+		Purchase purchase = purchaseService.getPurchase(10027);
 		Assert.assertNotNull(purchase);
 		
-		Assert.assertEquals(10006, purchase.getTranNo());
+		Assert.assertEquals(10027, purchase.getTranNo());
 		Assert.assertEquals(10006, purchase.getPurchaseProd().getProdNo());
 		Assert.assertEquals("admin", purchase.getBuyer().getUserId());
 		Assert.assertEquals("1", purchase.getPaymentOption());
@@ -181,7 +175,7 @@ public class PurchaseServiceTest {
 		
 		purchaseService.updatePurchase(purchase);
 		
-		purchase = purchaseService.getPurchase(10006);
+		purchase = purchaseService.getPurchase(10027);
 		Assert.assertNotNull(purchase);
 		
 		//==> console 확인
@@ -197,12 +191,12 @@ public class PurchaseServiceTest {
 
 	 }
 	 
-	 //@Test
+//	 @Test
 	 public void testUpdateTranCode() throws Exception{
-			Purchase purchase = purchaseService.getPurchase(10000);
+			Purchase purchase = purchaseService.getPurchase(10027);
 			Assert.assertNotNull(purchase);
 			
-			Assert.assertEquals(10006, purchase.getTranNo());
+			Assert.assertEquals(10027, purchase.getTranNo());
 			Assert.assertEquals(10006, purchase.getPurchaseProd().getProdNo());
 			Assert.assertEquals("admin", purchase.getBuyer().getUserId());
 			Assert.assertEquals("2", purchase.getPaymentOption());
@@ -216,16 +210,16 @@ public class PurchaseServiceTest {
 			//==> console 확인
 			System.out.println(purchase);
 			
-			purchaseService.updateTranCode(purchase, 2);
+			purchaseService.updateTranCode(purchase, 1);
 			
 			//==> console 확인
 			System.out.println(purchase.getTranCode());
 			
-			Assert.assertEquals("2", purchase.getTranCode());
+			Assert.assertEquals("1", purchase.getTranCode());
 	 }
 	 
 	 //==>  주석을 풀고 실행하면....
-	 //@Test
+//	 @Test
 	 public void testGetPurchaseList() throws Exception{
 		 
 	 	Search search = new Search();

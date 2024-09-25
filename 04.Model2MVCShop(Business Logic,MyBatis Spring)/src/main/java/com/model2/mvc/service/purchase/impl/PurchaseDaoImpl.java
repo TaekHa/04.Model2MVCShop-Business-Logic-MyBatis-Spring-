@@ -51,12 +51,12 @@ public class PurchaseDaoImpl implements PurchaseDao{
 	}
 	
 	public Purchase getPurchase(int tranNo) throws Exception {
-		return sqlSession.selectOne("PurchaseMapper.findPurchase", tranNo);
+		return sqlSession.selectOne("PurchaseMapper.getPurchase", tranNo);
 	}
 	
 	public Purchase getPurchaseByProd(int prodNo) throws Exception {
 		
-		return sqlSession.selectOne("PurchaseMapper.findPurchaseByProd", prodNo);
+		return sqlSession.selectOne("PurchaseMapper.getPurchaseByProd", prodNo);
 		
 	}
 	
